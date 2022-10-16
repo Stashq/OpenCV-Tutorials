@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "opencv-tutorials"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "3.8.12"
+opencv-python = "^4.6.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.10.0"
+flake8 = "^5.0.4"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 80
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
