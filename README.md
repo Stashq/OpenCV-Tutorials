@@ -140,3 +140,16 @@ min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
 ```
 
 Match template method is formula which is minimized/maximized ([link](https://docs.opencv.org/4.x/df/dfb/group__imgproc__object.html#ga3a7850640f1fe1f58fe91a2d7583695d)).
+
+## Cascade Classifiers
+
+You can use *CascadeClassifier* with predefined params from *.xml* file to recognize objects like face. Code example:
+
+```python
+face_cascade = cv2.CascadeClassifier(
+    cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
+)
+faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+for (x, y, w, h) in faces:
+    cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 5)
+```
